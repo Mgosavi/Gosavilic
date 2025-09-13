@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LIC Insurance Solutions</title>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #eaf6ff; margin:0; padding:0; color:#333; }
+  header { background: linear-gradient(90deg,#0072c6 60%,#ffe082 100%); color:white; padding:20px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; }
+  header img { height:70px; background:white; border-radius:8px; padding:5px; margin-right:15px; box-shadow:0 2px 10px #aaa; }
+  .header-title h1 { margin:0; font-size:2em; color:#ffd600; text-shadow:1px 2px 3px #00356b; }
+  .header-title p { margin:5px 0 0 0; font-size:1em; color:#fffde7; }
+  .header-contact { margin-top:5px; font-size:0.95em; }
+  .header-contact a { color:#fffde7; text-decoration:none; font-weight:bold; }
+  .header-contact a:hover { color:#ffd600; }
+  nav { background:#0072c6; padding:10px; text-align:center; }
+  nav a { color:#fffde7; margin:0 15px; text-decoration:none; font-weight:bold; padding:6px 12px; border-radius:4px; transition:0.3s; }
+  nav a:hover { background:#ffd600; color:#036; }
+  .home-banner { background: linear-gradient(85deg,#f7fbff 80%,#ffd600 100%); display:flex; flex-wrap:wrap; align-items:center; justify-content:center; margin:30px auto; max-width:950px; padding:20px; border-radius:20px; box-shadow:0 3px 12px #ccc; gap:20px; }
+  .home-banner img { height:180px; border-radius:12px; }
+  .home-banner-content { flex:1; min-width:250px; }
+  .home-banner-content h2 { color:#00356b; margin:0 0 10px 0; }
+  .services-section { max-width:970px; margin:20px auto; background:#fffde7; padding:25px; border-radius:18px; box-shadow:0 1px 8px #e2e2e2; }
+  .services-section h2 { text-align:center; color:#0072c6; }
+  .services-list { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; list-style:none; padding:0; }
+  .service-card { background: linear-gradient(135deg,#e3f2fd 70%,#ffe082 100%); border-radius:12px; box-shadow:0 1px 8px #aaa; width:240px; text-align:center; padding:15px; cursor:pointer; transition:0.3s; }
+  .service-card:hover { box-shadow:0 4px 20px #ffd600b8; transform:translateY(-5px); }
+  .service-card img { height:60px; margin-bottom:8px; }
+  .service-title { color:#0072c6; font-weight:bold; margin-bottom:5px; }
+  .about-section { max-width:960px; margin:40px auto; background: linear-gradient(120deg,#fffde7 70%,#e3f2fd 100%); padding:25px; border-radius:18px; box-shadow:0 2px 10px #d9d9d9; text-align:center; }
+  .about-section h2 { color:#0072c6; margin-bottom:15px; }
+  .about-text { font-size:1em; color:#333; line-height:1.5em; margin-bottom:15px; text-align:justify; }
+  .contact-section { max-width:880px; margin:30px auto; background: linear-gradient(130deg,#e3f2fd 80%,#ffd600 100%); padding:30px 20px; border-radius:18px; box-shadow:0 1px 10px #bbb; text-align:center; }
+  .contact-section h2 { margin:0 0 15px 0; color:#00356b; }
+  form { display:flex; flex-direction:column; max-width:380px; margin:0 auto; background:#fafafa; border-radius:12px; padding:20px; box-shadow:0 1px 8px #ccc; }
+  label { margin:8px 0 5px; color:#0072c6; font-weight:500; }
+  input,textarea { padding:10px; border:1px solid #ccc; border-radius:4px; margin-bottom:8px; font-size:1em; background:#f1faff; }
+  button { padding:12px; border:none; border-radius:5px; font-weight:bold; cursor:pointer; background:#ffd600; color:#00356b; font-size:1em; transition:0.2s; }
+  button:hover { background:#0072c6; color:#ffe082; }
+  footer { text-align:center; padding:18px; background: linear-gradient(90deg,#ffe082 40%,#0072c6 100%); color:#00356b; font-weight:500; border-radius:10px 10px 0 0; margin-top:40px; }
+  /* Popup Styles */
+  #popupOverlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; }
+  #popupBox { display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:white; padding:20px; border-radius:12px; max-width:500px; width:90%; max-height:80%; overflow-y:auto; box-shadow:0 4px 20px #333; z-index:1001; }
+  #popupBox h3 { margin-top:0; color:#0072c6; }
+  #popupBox button { background:#0072c6; color:#ffe082; margin-top:10px; }
+  @media(max-width:700px){ .home-banner{flex-direction:column;text-align:center;} .home-banner img{margin:0 auto;} .services-list{flex-direction:column;align-items:center;} header{flex-direction:column;text-align:center;} .header-title{margin-top:10px;} }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="https://www.licindia.in/PublishingImages/LIC_Logo.png" alt="LIC Logo"/>
+  <div class="header-title">
+    <h1>LIC Insurance Solutions</h1>
+    <p>Your Trusted Partner for Secure Futures</p>
+    <div class="header-contact">
+      📞 <a href="tel:9422949441">9422949441</a> | ✉️ <a href="mailto:gosavilic@gmail.com">gosavilic@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section class="home-banner" id="home">
+  <img src="https://licindia.in/Home/UploadDocuments/Content/imagesslider/childrenfuture.jpg" alt="LIC Family Protection">
+  <div class="home-banner-content">
+    <h2>Why Choose LIC?</h2>
+    <ul>
+      <li><b>Trusted for decades</b> – India’s largest and most reliable insurer.</li>
+      <li><b>Comprehensive cover</b> – Life, health, pension, and savings.</li>
+      <li><b>Guaranteed benefits</b> – Secure payouts and maturity benefits.</li>
+      <li><b>Affordable premiums</b> – Plans for every budget.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="services-section" id="services">
+  <h2>LIC Policies</h2>
+  <ul class="services-list">
+    <li class="service-card" onclick="showPopup('jeevanAnand')">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/LIC_Logo.png/120px-LIC_Logo.png" alt="Jeevan Anand"/>
+      <div class="service-title">Jeevan Anand</div>
+    </li>
+    <li class="service-card" onclick="showPopup('endowment')">
+      <img src="https://www.licindia.in/Home/UploadDocuments/Content/imagesslider/JEevanSurakshaImage.jpg" alt="New Endowment"/>
+      <div class="service-title">New Endowment</div>
+    </li>
+    <li class="service-card" onclick="showPopup('moneyBack')">
+      <img src="https://www.licindia.in/Home/UploadDocuments/Content/imagesslider/moneyback.jpg" alt="Money Back"/>
+      <div class="service-title">Money Back Plan</div>
+    </li>
+    <li class="service-card" onclick="showPopup('eterm')">
+      <img src="https://www.licindia.in/Home/UploadDocuments/Content/imagesslider/ETerm.jpg" alt="e-Term"/>
+      <div class="service-title">e-Term Plan</div>
+    </li>
+  </ul>
+</section>
+
+<section class="about-section" id="about">
+  <h2>About Varsha Sanjay Gosavi</h2>
+  <p class="about-text">
+    Varsha’s journey with LIC is about changing lives and securing futures. Coming from humble beginnings, she faced challenges, doubts, and rejections, but her dedication and belief in insurance turned obstacles into opportunities.
+  </p>
+  <p class="about-text">
+    Today, Varsha stands proud as a successful LIC agent, achieving milestones while building trust and security for families. Her story proves that hard work and passion make dreams attainable.
+  </p>
+</section>
+
+<section class="contact-section" id="contact">
+  <h2>Get in Touch</h2>
+  <form id="contactForm" action="https://formspree.io/f/meolpjkb" method="POST">
+    <label for="contactName">Full Name</label>
+    <input type="text" id="contactName" name="name" required />
+    <label for="contactEmail">Email</label>
+    <input type="email" id="contactEmail" name="email" required />
+    <label for="contactPhone">Phone Number</label>
+    <input type="tel" id="contactPhone" name="phone" required pattern="[0-9]{10}" />
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 Maan Tech Solu. All rights reserved.</p>
+</footer>
+
+<!-- Popup -->
+<div id="popupOverlay" onclick="closePopup()"></div>
+<div id="popupBox">
+  <h3 id="popupTitle"></h3>
+  <div id="popupContent"></div>
+  <button onclick="closePopup()">Close</button>
+</div>
+
+<script>
+const policies = {
+  jeevanAnand: {
+    title: "LIC Jeevan Anand (Plan 149)",
+    content: `
+      <p><strong>Overview:</strong> Combines endowment and whole life benefits.</p>
+      <ul>
+        <li>Term: 15-35 years</li>
+        <li>Loan Facility: After 3 years</li>
+        <li>Bonuses: Simple Reversionary + Final Additional</li>
+      </ul>
+      <p><strong>Example:</strong> ₹10,00,000 SA for 20 yrs may give ₹14,00,000 with bonuses.</p>
+      <p><a href="https://licindia.in/LICs-New-Jeevan-Anand-Plan-No.-149" target="_blank">Official Source</a></p>
+    `
+  },
+  endowment: {
+    title: "LIC New Endowment Plan (Plan 914)",
+    content: `
+      <p><strong>Overview:</strong> Individual life plan combining protection & savings.</p>
+      <ul>
+        <li>Term: 12-35 years</li>
+        <li>Premium: Single, Limited, Regular</li>
+        <li>Loan Facility: After 3 years</li>
+      </ul>
+      <p><strong>Example:</strong> ₹5,00,000 SA for 15 yrs may give ₹7,50,000 with bonuses.</p>
+      <p><a href="https://licindia.in/LICs-New-Endowment-Plan-No.-914" target="_blank">Official Source</a></p>
+    `
+  },
+  moneyBack: {
+    title: "LIC Money Back Plan (Plan 720)",
+    content: `
+      <p><strong>Overview:</strong> Periodic survival payouts + life cover.</p>
+      <ul>
+        <li>Term: 20 years</li>
+        <li>Survival Benefits: 20% every 5 yrs</li>
+        <li>Death Benefit: Higher of 125% SA or 7× premium</li>
+      </ul>
+      <p><strong>Example:</strong> ₹10,00,000 SA: ₹2,00,000 every 5 yrs + remaining ₹4,00,000 at maturity with bonuses.</p>
+      <p><a href="https://licindia.in/LICs-New-Money-Back-Plan-20-Years" target="_blank">Official Source</a></p>
+    `
+  },
+  eterm: {
+    title: "LIC e-Term Plan",
+    content: `
+      <p><strong>Overview:</strong> Pure term assurance plan for online purchase.</p>
+      <ul>
+        <li>Term: 10-35 years</li>
+        <li>Sum Assured: ₹25 Lakh+</li>
+        <li>Riders: Accidental Death & Disability</li>
+      </ul>
+      <p><strong>Example:</strong> ₹50,00,000 SA for 20 yrs costs approx ₹12,000/yr.</p>
+      <p><a href="https://licindia.in/LICs-e-Term-Plan" target="_blank">Official Source</a></p>
+    `
+  }
+};
+
+function showPopup(policy){
+  document.getElementById("popupTitle").innerHTML = policies[policy].title;
+  document.getElementById("popupContent").innerHTML = policies[policy].content;
+  document.getElementById("popupBox").style.display = "block";
+  document.getElementById("popupOverlay").style.display = "block";
+}
+
+function closePopup(){
+  document.getElementById("popupBox").style.display = "none";
+  document.getElementById("popupOverlay").style.display = "none";
+}
+</script>
+
+</body>
+</html>
